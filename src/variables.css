@@ -1,0 +1,108 @@
+/* ================== Variables ================== */
+:root{
+	/* ========= Colors ========= */
+    --whiteColor: white;   
+	--blackColor: black;
+	/* mainColor: debe usarse para el contenido principal*/
+    --mainColor:rgba(11, 38, 246, 1);
+    --lightMainColor: color(var(--mainColor) lightness(55%));
+    --darkMainColor: color(var(--mainColor) blackness(15%));
+    /* secondaryColor: debe usarse para destacar elementos*/
+    --secondaryColor:rgba(255, 41, 80, 1);
+    --lightSecondaryColor: color(var(--secondaryColor) lightness(60%));
+    --darkSecondaryColor: color(var(--secondaryColor) blackness(15%));
+    /* grayColor: se utiliza para elementos que no están en el foco principal*/
+    --grayColor:rgba(242, 246, 247,1);
+    --lightGrayColor: color(var(--grayColor) lightness(95%));
+    --darkGrayColor: color(var(--grayColor) blackness(20%));
+    /* complementaryColorOne: se puede usar en fondos o elementos de segundo plano*/
+    --complementaryColorOne:rgba(255, 229, 119, 1);
+    --lightComplementaryColorOne: color(var(--complementaryColorOne) lightness(90%));
+    --darkComplementaryColorOne: color(var(--complementaryColorOne) blackness(20%));
+    /* complementaryColorTwo: se puede usar en fondos o elementos de segundo plano*/
+    --complementaryColorTwo:rgba(36, 239, 255, 1);
+    --lightComplementaryColorTwo: color(var(--complementaryColorTwo) lightness(80%));
+    --darkComplementaryColorTwo: color(var(--complementaryColorTwo) blackness(20%));
+    /* complementaryColorThree: se puede usar en fondos o elementos de segundo plano*/
+    --complementaryColorThree:rgba(37, 41, 88, 1));
+    --lightComplementaryColorThree: color(var(--complementaryColorThree) lightness(70%));
+    --darkComplementaryColorThree: color(var(--complementaryColorThree) blackness(20%));
+	
+	/* ========= Font ========= */
+	--fontSize: 1rem;
+	--fontFamily: 'Source Sans Pro', sans-serif;
+	--fontWeightNormal: 400;
+	--fontWeightLight: 300;
+	--fontWeightBold: 600;
+	--fontWeightBlack: 900;
+	--allCaps: uppercase;
+	--capitalize:capitalize;
+	/* ========= Spacing ========= */
+	--padding: 1rem;
+	/* ========= Border-radius ========= */
+	--border-radius:0.5rem;
+	/* ========= Box-shadow ========= */
+	--smallShadow: 0px 0px 8px 0px rgba(0,0,0,0.1); 
+	--smallShadowHover: 0px 0px 16px 0px rgba(0,0,0,0.2);
+	/* ========= Transitions ========= */
+	--transitionBoton:all ease-out 0.3s;
+}
+
+/*  ============ Custom media queries ============ */
+@custom-media --mobile (max-width: 480px);
+@custom-media --tablet (max-width: 768px);
+@custom-media --desktop (max-width: 992px);
+@custom-media --retina (-webkit-min-device-pixel-ratio: 2);
+
+body{
+	font-family: var(--fontFamily);
+	padding: var(--padding);
+}
+
+/* ========= Font-size ========= */
+h1 {
+	font-size: calc(var(--fontSize) * 3);
+	line-height: calc(var(--padding) * 6);
+	font-weight: var(--fontWeightLight);
+}
+h2 {
+	font-size: calc(var(--fontSize) * 2);
+	line-height: calc(var(--padding) * 4);
+	font-weight: var(--fontWeightBold);
+}
+h3 {
+	font-size: calc(var(--fontSize) * 1.8);
+	line-height: calc(var(--padding) * 3.6);
+	font-weight: var(--fontWeightBold);
+}
+h4 {
+	font-size: calc(var(--fontSize) * 1.6);
+	line-height: calc(var(--padding) * 3.2);
+	font-weight: var(--fontWeightBold);
+}
+
+h5 {
+	font-size: calc(var(--fontSize) * 1.4);
+	line-height: calc(var(--padding) * 2.8);
+	font-weight: var(--fontWeightBold);
+}
+
+h6{
+	font-size: calc(var(--fontSize) * 1.2);
+	line-height: calc(var(--padding) * 2.4);
+	font-weight: var(--fontWeightBold);
+}
+
+p {
+	font-size: var(--fontSize);
+	line-height: calc(var(--padding) * 1.5);
+	font-weight: var(--fontWeightNormal);
+}
+
+p.caption {
+	font-size: calc(var(--fontSize) / 1.5);
+	line-height: calc(var(--padding) * 1.5);
+	font-weight: var(--fontWeightBlack);
+	color: var(--lightSecondaryColor);
+	text-transform: var(--allCaps);
+}

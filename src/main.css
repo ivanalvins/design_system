@@ -1,0 +1,243 @@
+/* ==================== Imports ==================== */
+@import './reset.css';
+@import './variables.css';
+@import './iconfont.css';
+
+
+@lost flexbox flex; /*lost con flexbox*/
+
+/* ==================== Mixins ==================== */
+
+.colores{
+	display: flex;
+	justify-content: flex-start;
+	margin-left: calc(var(--padding)*2);
+	margin-top: calc(var(--padding)*2);
+}
+
+div[class^="rectangle"]{
+	width: 3rem;
+	height: 3rem;
+	margin-right: calc(var(--padding)*2);
+}
+
+/* primer grupo */
+.rectangle{
+	background-color: var(--lightSecondaryColor);
+}
+
+.rectangle-1{
+	background-color: var(--secondaryColor);
+}
+
+.rectangle-2{
+	background-color: var(--darkSecondaryColor);
+}
+
+/* segundo grupo */
+.rectangle-3{
+	background-color: var(--lightMainColor);
+}
+
+.rectangle-4{
+	background-color: var(--mainColor);
+}
+
+.rectangle-5{
+	background-color: var(--darkMainColor);
+}
+
+/* tercer grupo */
+.rectangle-6{
+	background-color: var(--lightGrayColor);
+}
+
+.rectangle-7{
+	background-color: var(--grayColor);
+}
+
+.rectangle-8{
+	background-color: var(--darkGrayColor);
+}
+
+/* cuarto grupo */
+.rectangle-9{
+	background-color: var(--lightComplementaryColorOne);
+}
+
+.rectangle-10{
+	background-color: var(--complementaryColorOne);
+}
+
+.rectangle-11{
+	background-color: var(--darkComplementaryColorOne);
+}
+
+/* quinto grupo */
+.rectangle-12{
+	background-color: var(--lightComplementaryColorTwo);
+}
+
+.rectangle-13{
+	background-color: var(--complementaryColorTwo);
+}
+
+.rectangle-14{
+	background-color: var(--darkComplementaryColorTwo);
+}
+
+/* quinto grupo */
+.rectangle-12{
+	background-color: var(--lightComplementaryColorThree);
+}
+
+.rectangle-13{
+	background-color: var(--complementaryColorThree);
+}
+
+.rectangle-14{
+	background-color: var(--darkComplementaryColorThree);
+}
+
+
+.fonts{
+	display: flex;
+	justify-content: flex-start;
+	margin-left: calc(var(--padding)*2);
+	margin-top: calc(var(--padding)*2);
+}
+
+@define-mixin btn $textColor, $bgColor, $borderRadius, $boxShadow, $transition {
+	border-radius: calc(var(--border-radius)/2);
+	border: none;
+	color: $textColor;
+	padding-top: calc(var(--padding)/2);
+	padding-right: calc(var(--padding)*2);
+	padding-bottom: calc(var(--padding)/2);
+	padding-left: calc(var(--padding)*2);
+	cursor: pointer;
+	text-decoration: none;
+	font-size: var(--fontSize);
+	text-transform: var(--capitalize);
+	background: $bgColor;
+	box-shadow: $boxShadow;
+	-webkit-box-shadow: $boxShadow;
+  	-moz-box-shadow: $boxShadow;
+  	-webkit-transition:$transition;
+  	-moz-transition:$transition;
+  	-o-transition:$transition;
+  	transition:$transition; 
+}
+
+.btn-primary{
+	@mixin btn var(--whiteColor), var(--secondaryColor), var(--padding), var(--smallShadow), var(--transitionBoton);
+	margin: 1rem;
+
+	&:hover{
+		@mixin btn var(--whiteColor), var(--lightSecondaryColor), var(--padding), var(--smallShadowHover);
+	}
+}
+
+.btn-secondary{
+	@mixin btn var(--secondaryColor), var(--grayColor), var(--padding), var(--smallShadow), var(--transitionBoton);
+	
+	&:hover{
+		@mixin btn var(--secondaryColor), var(--lightGrayColor), var(--padding), var(--smallShadowHover);
+	}
+}
+
+
+.u-scrollContainer{
+	width: 100%;
+	overflow: auto;
+	white-space: nowrap;
+	margin-bottom: 1rem;
+	scroll-snap-points-x: repeat(100%);
+	scroll-snap-type: mandatory;
+	font-size: 0;
+
+	&-itemContainer{
+		border: 1px solid var(--border-feature);
+		border-radius: 12px;
+		width: 98%;
+		margin: 1%;
+		display: inline-block;
+		line-height: 18px;
+		font-size: 18px;
+	}
+
+	&-itemContent{
+		display: flex;
+
+		& > img{
+			width: auto;
+			height: 200px;
+		}
+	}
+}
+
+/* Grid con lost */
+.u-grid{
+	background-color: #d6d8d8;
+	lost-center: 1024px;
+	lost-utility: clearfix;
+
+	&-column{
+		background-color: #606060;
+		lost-column: 1/5;
+		margin-bottom: 1rem;
+
+		@media(--tablet) {
+			lost-column: 1/3;
+		}
+
+		@media(--mobile){
+			lost-column: 1/1;
+		}
+	}
+}
+.u-wrapper{
+	max-width: 1024px;
+	margin: auto;
+}
+
+.squalHero{
+	background: url('../images/background.png') var(--bg-header);
+	padding: 20px;
+	height: 500px;
+	@media (--retina){
+		background: url('../images/background2x.png') var(--bg-header);
+	}
+	&-header{
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		color: #606060;
+		transform: .3s all ease;
+	}
+	&-logo{
+		transition: all .3s ease-in;
+		&:hover{
+			filter: blur(4px);
+			cursor: pointer;
+		}
+	}
+	&-copy{
+		&-title{
+			font-size: calc(var(--fontSize) * 2.5);
+		}
+		&-btn{
+			@mixin btn var(--bg-body), var(--btn-gradient), var(--btn-gradient-start), var(--btn-gradient-end);
+		}
+	}
+}
+
+.squalFooter{
+	background-color: var(--bg-footer);
+
+	&-form{
+		&-btn{
+			@mixin btn var(--bg-body), var(--btn-gradient), var(--btn-gradient-start), var(--btn-gradient-end);
+		} 
+	}
+}
